@@ -1,0 +1,70 @@
+import ClippedSGD.KnownHorizonMain
+import ClippedSGD.AnytimeLowerMain
+import ClippedSGD.MomentumMain
+
+#check ClippedSGD.KnownHorizonMain.known_horizon_upper
+#print axioms ClippedSGD.KnownHorizonMain.known_horizon_upper
+#check ClippedSGD.AnytimeLower.time_uniform_obstruction
+#print axioms ClippedSGD.AnytimeLower.time_uniform_obstruction
+#check ClippedSGD.MomentumMain.main_obstruction
+#print axioms ClippedSGD.MomentumMain.main_obstruction
+#check ClippedSGD.AnytimeLower.position_zero
+#print axioms ClippedSGD.AnytimeLower.position_zero
+#check ClippedSGD.AnytimeLower.position_step
+#print axioms ClippedSGD.AnytimeLower.position_step
+#check ClippedSGD.AnytimeLower.flat_coupling
+#print axioms ClippedSGD.AnytimeLower.flat_coupling
+#check ClippedSGD.AnytimeLower.overshoot_failure
+#print axioms ClippedSGD.AnytimeLower.overshoot_failure
+#check ClippedSGD.AnytimeLower.endpoint_failure
+#print axioms ClippedSGD.AnytimeLower.endpoint_failure
+#check ClippedSGD.AnytimeLower.frozenReference_eq_flat
+#print axioms ClippedSGD.AnytimeLower.frozenReference_eq_flat
+#check ClippedSGD.AnytimeLower.frozenReference_measurable
+#print axioms ClippedSGD.AnytimeLower.frozenReference_measurable
+#check ClippedSGD.AnytimeLower.crossingJoint_measurable
+#print axioms ClippedSGD.AnytimeLower.crossingJoint_measurable
+#check ClippedSGD.AnytimeLower.continuous_crossing_budget
+#print axioms ClippedSGD.AnytimeLower.continuous_crossing_budget
+#check ClippedSGD.AnytimeLower.progress_budget
+#print axioms ClippedSGD.AnytimeLower.progress_budget
+#check ClippedSGD.AnytimeLower.exists_fixed_target_failure
+#print axioms ClippedSGD.AnytimeLower.exists_fixed_target_failure
+#check ClippedSGD.AnytimeLower.instance_properties
+#print axioms ClippedSGD.AnytimeLower.instance_properties
+#check ClippedSGD.AnytimeLower.InstanceProperties.fresh_oracle
+#print axioms ClippedSGD.AnytimeLower.InstanceProperties.fresh_oracle
+#check ClippedSGD.AnytimeLower.finite_iid_failure
+#print axioms ClippedSGD.AnytimeLower.finite_iid_failure
+#check ClippedSGD.AnytimeLower.finite_to_infinite
+#print axioms ClippedSGD.AnytimeLower.finite_to_infinite
+#check ClippedSGD.AnytimeLowerParameters.log_budget_tendsto
+#print axioms ClippedSGD.AnytimeLowerParameters.log_budget_tendsto
+#check ClippedSGD.AnytimeLowerParameters.exists_log_parameters
+#print axioms ClippedSGD.AnytimeLowerParameters.exists_log_parameters
+#check ClippedSGD.AnytimeLower.time_uniform_finite_prefix
+#print axioms ClippedSGD.AnytimeLower.time_uniform_finite_prefix
+#check ClippedSGD.MomentumMain.betaExponent_formula
+#print axioms ClippedSGD.MomentumMain.betaExponent_formula
+#check ClippedSGD.MomentumLogWindow.eventually_short_windows
+#print axioms ClippedSGD.MomentumLogWindow.eventually_short_windows
+#check ClippedSGD.MomentumLogWindow.eventually_small_windows
+#print axioms ClippedSGD.MomentumLogWindow.eventually_small_windows
+#check ClippedSGD.MomentumLogWindow.window_damping_lower
+#print axioms ClippedSGD.MomentumLogWindow.window_damping_lower
+#check ClippedSGD.MomentumLogWindow.exponential_tail
+#print axioms ClippedSGD.MomentumLogWindow.exponential_tail
+#check ClippedSGD.MomentumHorizon.arrival_expectation_bound
+#print axioms ClippedSGD.MomentumHorizon.arrival_expectation_bound
+#check ClippedSGD.MomentumHorizon.budget_tendsto
+#print axioms ClippedSGD.MomentumHorizon.budget_tendsto
+#check ClippedSGD.MomentumHorizon.select_horizon
+#print axioms ClippedSGD.MomentumHorizon.select_horizon
+#check ClippedSGD.MomentumMain.finite_prefix_rate_failure
+#print axioms ClippedSGD.MomentumMain.finite_prefix_rate_failure
+#check ClippedSGD.Potential.recursive_partial_sum_potential
+#print axioms ClippedSGD.Potential.recursive_partial_sum_potential
+#check ClippedSGD.MixedEvents.mixed_tail
+#print axioms ClippedSGD.MixedEvents.mixed_tail
+#check ClippedSGD.ProjectionPulse.orthogonal_pulse_budget_full
+#print axioms ClippedSGD.ProjectionPulse.orthogonal_pulse_budget_full

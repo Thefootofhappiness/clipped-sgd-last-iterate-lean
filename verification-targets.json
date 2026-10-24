@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "build_modules": [
+    "ClippedSGD.KnownHorizonMain",
+    "ClippedSGD.AnytimeLowerMain",
+    "ClippedSGD.MomentumMain"
+  ],
+  "terminal_targets": [
+    "ClippedSGD.KnownHorizonMain.known_horizon_upper",
+    "ClippedSGD.AnytimeLower.time_uniform_obstruction",
+    "ClippedSGD.MomentumMain.main_obstruction"
+  ],
+  "audit_targets": [
+    "ClippedSGD.KnownHorizonMain.known_horizon_upper",
+    "ClippedSGD.AnytimeLower.time_uniform_obstruction",
+    "ClippedSGD.MomentumMain.main_obstruction",
+    "ClippedSGD.AnytimeLower.position_zero",
+    "ClippedSGD.AnytimeLower.position_step",
+    "ClippedSGD.AnytimeLower.flat_coupling",
+    "ClippedSGD.AnytimeLower.overshoot_failure",
+    "ClippedSGD.AnytimeLower.endpoint_failure",
+    "ClippedSGD.AnytimeLower.frozenReference_eq_flat",
+    "ClippedSGD.AnytimeLower.frozenReference_measurable",
+    "ClippedSGD.AnytimeLower.crossingJoint_measurable",
+    "ClippedSGD.AnytimeLower.continuous_crossing_budget",
+    "ClippedSGD.AnytimeLower.progress_budget",
+    "ClippedSGD.AnytimeLower.exists_fixed_target_failure",
+    "ClippedSGD.AnytimeLower.instance_properties",
+    "ClippedSGD.AnytimeLower.InstanceProperties.fresh_oracle",
+    "ClippedSGD.AnytimeLower.finite_iid_failure",
+    "ClippedSGD.AnytimeLower.finite_to_infinite",
+    "ClippedSGD.AnytimeLowerParameters.log_budget_tendsto",
+    "ClippedSGD.AnytimeLowerParameters.exists_log_parameters",
+    "ClippedSGD.AnytimeLower.time_uniform_finite_prefix",
+    "ClippedSGD.MomentumMain.betaExponent_formula",
+    "ClippedSGD.MomentumLogWindow.eventually_short_windows",
+    "ClippedSGD.MomentumLogWindow.eventually_small_windows",
+    "ClippedSGD.MomentumLogWindow.window_damping_lower",
+    "ClippedSGD.MomentumLogWindow.exponential_tail",
+    "ClippedSGD.MomentumHorizon.arrival_expectation_bound",
+    "ClippedSGD.MomentumHorizon.budget_tendsto",
+    "ClippedSGD.MomentumHorizon.select_horizon",
+    "ClippedSGD.MomentumMain.finite_prefix_rate_failure",
+    "ClippedSGD.Potential.recursive_partial_sum_potential",
+    "ClippedSGD.MixedEvents.mixed_tail",
+    "ClippedSGD.ProjectionPulse.orthogonal_pulse_budget_full"
+  ]
+}
