@@ -52,7 +52,7 @@
     "ClippedSGD/UpperParameters.lean": "49e1fcd71345ca3930c7a490ddf90f70cccabb3e7eec2a9617af10e2e9c341ed",
     "ClippedSGD/UpperRun.lean": "80da7c4cd827422f46f98cdadbf3d7026d6d375b3d3f3054d82d60e5c8957143",
     "LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
-    "README.md": "72dc5914427b32875085afd04515710ffa15f805fcc7e0a3f11fcedb838367a4",
+    "README.md": "9eb07d8b8767e911b79a9db77c309027d21418928379b1409cd2c50f8f4c5d9e",
     "lake-manifest.json": "78d0e033b560a850a15f62723d43df721d5b0763ac6788e0ffdb0aa43c80a4ed",
     "lakefile.toml": "654cea8b868db325d38afc9b803141e3c36dc8cf2834fff611c81508be9d5b1f",
     "lean-toolchain": "55e97be96000b5e9e290c9e74482e5e317861499a5540353ce845471bded8cea",
