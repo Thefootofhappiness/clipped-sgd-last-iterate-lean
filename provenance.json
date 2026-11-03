@@ -5,7 +5,8 @@
   "terminal_targets": [
     "ClippedSGD.KnownHorizonMain.known_horizon_upper",
     "ClippedSGD.AnytimeLower.time_uniform_obstruction",
-    "ClippedSGD.MomentumMain.main_obstruction"
+    "ClippedSGD.MomentumMain.main_obstruction",
+    "ClippedSGD.AnytimeUpperMain.anytime_upper"
   ],
   "local_modules": [
     "ClippedSGD",
@@ -17,14 +18,18 @@
     "ClippedSGD.AnytimeLowerParameters",
     "ClippedSGD.AnytimeLowerRule",
     "ClippedSGD.AnytimeLowerTransfer",
+    "ClippedSGD.AnytimeParameters",
+    "ClippedSGD.AnytimeUpperMain",
     "ClippedSGD.ArrivalExpectation",
     "ClippedSGD.Bernoulli",
     "ClippedSGD.Clipping",
     "ClippedSGD.ClippingConditional",
     "ClippedSGD.ContinuousCrossing",
     "ClippedSGD.ContinuousLower",
+    "ClippedSGD.EnergyBudget",
     "ClippedSGD.FiniteHorizonPathwise",
     "ClippedSGD.FrozenReference",
+    "ClippedSGD.GlobalClipping",
     "ClippedSGD.HingeGeometry",
     "ClippedSGD.KnownHorizonMain",
     "ClippedSGD.LinearSchedule",
@@ -51,9 +56,13 @@
     "ClippedSGD.ProjectionPulse",
     "ClippedSGD.Radius",
     "ClippedSGD.Resolvent",
+    "ClippedSGD.SuffixPotential",
     "ClippedSGD.UpperConcentration",
     "ClippedSGD.UpperNoise",
     "ClippedSGD.UpperParameters",
-    "ClippedSGD.UpperRun"
+    "ClippedSGD.UpperRun",
+    "LeanKit.Probability.Freedman",
+    "LeanKit.Probability.MartingaleConcentration",
+    "LeanKit.Probability.TimeUniform"
   ]
 }

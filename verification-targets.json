@@ -3,12 +3,14 @@
   "build_modules": [
     "ClippedSGD.KnownHorizonMain",
     "ClippedSGD.AnytimeLowerMain",
-    "ClippedSGD.MomentumMain"
+    "ClippedSGD.MomentumMain",
+    "ClippedSGD.AnytimeUpperMain"
   ],
   "terminal_targets": [
     "ClippedSGD.KnownHorizonMain.known_horizon_upper",
     "ClippedSGD.AnytimeLower.time_uniform_obstruction",
-    "ClippedSGD.MomentumMain.main_obstruction"
+    "ClippedSGD.MomentumMain.main_obstruction",
+    "ClippedSGD.AnytimeUpperMain.anytime_upper"
   ],
   "audit_targets": [
     "ClippedSGD.KnownHorizonMain.known_horizon_upper",
@@ -43,6 +45,16 @@
     "ClippedSGD.MomentumMain.finite_prefix_rate_failure",
     "ClippedSGD.Potential.recursive_partial_sum_potential",
     "ClippedSGD.MixedEvents.mixed_tail",
-    "ClippedSGD.ProjectionPulse.orthogonal_pulse_budget_full"
+    "ClippedSGD.ProjectionPulse.orthogonal_pulse_budget_full",
+    "ClippedSGD.AnytimeUpperMain.anytime_upper",
+    "ClippedSGD.AnytimeUpperMain.anytime_upper_centered",
+    "ClippedSGD.AnytimeUpperMain.anytime_upper_normalized",
+    "ClippedSGD.AnytimeUpperMain.anytime_radius_event",
+    "ClippedSGD.AnytimeUpperMain.anytime_horizon_event",
+    "ClippedSGD.EnergyBudget.energy_budget_finite",
+    "ClippedSGD.EnergyBudget.energy_budget_infinite",
+    "ClippedSGD.GlobalClipping.global_clipping_estimates",
+    "ClippedSGD.SuffixPotential.potential_endpoint_bound",
+    "LeanKit.Probability.Freedman.freedman_infinite"
   ]
 }

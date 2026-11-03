@@ -1,16 +1,17 @@
 # Lean 4 formalization: last iterate of clipped SGD under heavy-tailed noise
 
-These files accompany the paper *The Cost of an Unknown Horizon for the Last Iterate of Clipped SGD under Heavy-Tailed Noise*. They contain a Lean 4 formalization, built on Mathlib, of three results stated in the paper, together with all of their local proof dependencies: the known-horizon bound of Theorem 1, which the paper cites from Jiang, Bai, and Li (2026, Theorem 1), and Theorems 4 and 8(i). Theorem, equation, and section numbers refer to the arXiv version of the paper.
+These files accompany the paper *The Cost of an Unknown Horizon for the Last Iterate of Clipped SGD under Heavy-Tailed Noise*. They contain a Lean 4 formalization, built on Mathlib, of four results stated in the paper, together with all of their local proof dependencies: the known-horizon bound of Theorem 1, which the paper cites from Jiang, Bai, and Li (2026, Theorem 1), and Theorems 2, 4, and 8. Theorem, equation, and section numbers refer to the arXiv version of the paper.
 
 ## What is formalized
 
 | Paper | Result | Lean declaration | File |
 |---|---|---|---|
 | Theorem 1 | Last-iterate bound for a known horizon: Algorithm 1 satisfies (3) on an event of probability at least $1-\delta$ (see the note on $\ell$ below) | `ClippedSGD.KnownHorizonMain.known_horizon_upper` | `ClippedSGD/KnownHorizonMain.lean` |
+| Theorem 2 | Time-uniform upper bound for clipped SGD with the horizon-free schedule of Section 4.1 | `ClippedSGD.AnytimeUpperMain.anytime_upper` | `ClippedSGD/AnytimeUpperMain.lean` |
 | Theorem 4 | Time-uniform lower bound for the gradient-only rules of Definition 3 | `ClippedSGD.AnytimeLower.time_uniform_obstruction` | `ClippedSGD/AnytimeLowerMain.lean` |
-| Theorem 8(i) | Momentum lower bound under polynomial forgetting, with constants shared by all dimensions | `ClippedSGD.MomentumMain.main_obstruction` | `ClippedSGD/MomentumMain.lean` |
+| Theorem 8 | Momentum lower bound under polynomial forgetting, with constants shared by all dimensions | `ClippedSGD.MomentumMain.main_obstruction` | `ClippedSGD/MomentumMain.lean` |
 
-Theorem 2 (the time-uniform upper bound) and the other results of the paper are not formalized.
+The other results of the paper are not formalized.
 
 ## Checking the proofs
 
@@ -23,7 +24,7 @@ python3 verify.py
 
 The cache contains only Mathlib and its dependencies; `verify.py` always rebuilds the files of this formalization from source. Without the cache, Mathlib is also compiled from source, which takes much longer.
 
-`verify.py` checks the files against `source-manifest.json` and the dependency checkouts against `lake-manifest.json`, deletes the local build directory, rebuilds all 47 local modules, and runs `Audit.lean`. It passes only if the build reports no `sorry` and the three theorems above, together with 30 intermediate declarations listed in `verification-targets.json`, depend on no axioms other than `propext`, `Classical.choice`, and `Quot.sound`. The receipt and logs are written to `verification-output/`. A fresh copy of these files passed this check on 2026-10-23.
+`verify.py` checks the files against `source-manifest.json` and the dependency checkouts against `lake-manifest.json`, deletes the local build directory, rebuilds all 55 local modules, and runs `Audit.lean`. It passes only if the build reports no `sorry` and the four theorems above, together with 39 intermediate declarations listed in `verification-targets.json`, depend on no axioms other than `propext`, `Classical.choice`, and `Quot.sound`. The receipt and logs are written to `verification-output/`. A fresh copy of these files passed this check on 2026-10-23.
 
 ## Reading the formal statements
 
@@ -38,6 +39,13 @@ Lean checks that each statement follows from the definitions. The notes below ma
 - **Conclusion.** With probability at least $1-\delta$, $f(x_{T+1})-f(x^\star)$ is at most the minimum of the right-hand side of (3), with $\ell=\log(6/\delta)$, and $13LR^2/20$, and $\|x_t-x^\star\|^2<13R^2/10$ for $1\le t\le T+1$ on the same event.
 - **Relation to Theorem 1.** The paper states Theorem 1 and Algorithm 1 with $\ell=\log(8/\delta)$, as Jiang, Bai, and Li do. Applying the Lean theorem with confidence parameter $3\delta/4$ gives $\ell=\log(8/\delta)$, the same threshold and step sizes, and probability at least $1-3\delta/4\ge1-\delta$, which is Theorem 1.
 
+### Theorem 2
+
+- **Objective and oracle.** As for Theorem 1: `f` is convex and differentiable with $L$-Lipschitz `gradient f` (`hlip`), `xstar` is a global minimizer (`hmin`), $\|x_1-x^\star\|\le R$ with $L,R>0$, and $\sigma\ge0$. The observations `g` are adapted to `𝓕`; conditionally on `𝓕 t`, `g (t+1)` has mean `gradient f` at the state `anytimeRun … (t+1)` (`hmean`) and central $p$th moment at most $\sigma^p$ (`hmoment`). As for Theorem 1, `hpm` states that this central moment is integrable, which follows from Assumption 2.
+- **Schedule.** `anytimeRun` (`AnytimeUpperMain.lean`) starts at $x_1$ and applies $x_{t+1}=x_t-\eta_t\,\mathrm{clip}(g_t,\lambda_t)$ with $\eta_t=(R/Q)c_pt^{-a}/\ell_t^2$ (`anytimeStep`) and $\lambda_t=4Qt^b$ (`anytimeLambda`), where $Q=\max\{LR,\sigma\}$ (`scaleQ`), $\ell_t=\log(100t^2)$ (`ell`), $a=(p+1)/(3p-1)$, and $b=2/(3p-1)$ (`AnytimeParameters.lean`). Neither a horizon nor $\delta$ enters the schedule.
+- **Constants.** The paper states that some $c_p$ depending only on $p$ works and gives $D_p=4/c_p$. The Lean statement uses the explicit value of the appendix, `c_p p` $=1/(1000K)$ with $K=2^{20}H_\beta^4$, and `D_p p` $=4/c_p$.
+- **Conclusion.** For every $\delta\in(0,1)$, with probability at least $1-\delta$, simultaneously for every $T\ge1$, $f(x_{T+1})-f(x^\star)\le D_pRQ\,T^{-\beta}\iota_T(\delta)^4$ with $\beta=2(p-1)/(3p-1)$ (`betaExp`) and $\iota_T(\delta)=\log(100T^2/\delta)$ (`iota`), and $\|x_{T+1}-x^\star\|^2\le R^2[\log(100/\delta)]^2$ (`confH`). Here `anytimeRun … (T+1)` is the paper's $x_{T+1}$.
+
 ### Theorem 4
 
 - **Rules (Definition 3).** A `Rule S` maps the time $t$, the observed gradients up to and including the current one, and a seed in `S` to a response $c_t$ (`AnytimeLowerRule.lean`). The theorem assumes that every response is nonnegative (`Nonnegative`) and that each `R t` is measurable. The state starts at $x_1=0$ and follows $x_{t+1}=x_t-c_tg_t$ (`position`; see `position_zero` and `position_step`). The rule receives no horizon, function values, or information about the instance; $p$ and $\delta$ are fixed before the rule is chosen, so the rule may depend on them.
@@ -45,7 +53,7 @@ Lean checks that each statement follows from the definitions. The notes below ma
 - **Instance.** `InstanceProperties` (`AnytimeLowerInstance.lean`, with the losses defined in `HingeGeometry.lean`) states that the population and sample losses are one-dimensional, convex, and globally 1-smooth and attain their minima; that the population minimizer $y$ satisfies $|y-0|\le1$; and that each sample gradient equals the population gradient plus a two-valued noise that is driven by i.i.d. Bernoulli samples, is centered, and has $p$th absolute moment at most one. They are part of the conclusion of the theorem, so they are proved for the instance it constructs. From them, `InstanceProperties.fresh_oracle` (`AnytimeLowerFresh.lean`) derives Assumption 2 in its conditional form: integrated over any event of the history, including the seed, the noise at a query point that depends on the history has mean zero and $p$th absolute moment at most the probability of the event.
 - **Failure event.** `paperFailure` (`AnytimeLowerTransfer.lean`) is the event that $f(x_{t+1})-f^\star>Ct^{-r}(\log(et))^m$ for some $t\ge1$, as in (9). Under the product of the i.i.d. sample law and the seed law, it has probability strictly greater than $\delta$, and it is proved to be measurable.
 
-### Theorem 8(i)
+### Theorem 8
 
 - **Controllers (Section 6.2).** `R d` is a controller in dimension $d$. At time $t$ it maps the gradient transcript, including the current gradient, and a seed to a momentum coefficient $\beta_t$ (Lean field `damping`), a step size $\eta_t$ (field `gain`), and a clipping scale $c_t$. The recursion (`MomentumRun.lean`) starts from zero position and velocity and sets $v_{t+1}=\beta_tv_t+c_tg_t$ and $x_{t+1}=x_t-\eta_tv_{t+1}$, as in (14). A scale $c_t\in[0,1]$ represents every radial clipping threshold.
 - **Common constants (17).** `UniformControls` fixes constants $\rho>0$, $a\in[0,1)$, $H,h\ge0$, and $t_0$ for all dimensions, histories, and seeds, and requires $0\le\beta_t<1$, $0\le c_t\le1$, $0\le\eta_t\le H(t+2)^h$, and $\beta_t\le1-\rho(t+2)^{-a}$ for $t\ge t_0$. Lean time starts at $0$, so $t+2$ corresponds to the paper's $1+t$.

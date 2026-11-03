@@ -1,6 +1,9 @@
 name = "clipped_sgd_supplement"
 version = "1.1.0"
-defaultTargets = ["ClippedSGD.KnownHorizonMain", "ClippedSGD.MomentumMain", "ClippedSGD.AnytimeLowerMain"]
+defaultTargets = ["ClippedSGD.KnownHorizonMain", "ClippedSGD.MomentumMain", "ClippedSGD.AnytimeLowerMain", "ClippedSGD.AnytimeUpperMain"]
+
+[[lean_lib]]
+name = "LeanKit"
 
 [[lean_lib]]
 name = "ClippedSGD"

@@ -1,6 +1,7 @@
 import ClippedSGD.KnownHorizonMain
 import ClippedSGD.AnytimeLowerMain
 import ClippedSGD.MomentumMain
+import ClippedSGD.AnytimeUpperMain
 
 #check ClippedSGD.KnownHorizonMain.known_horizon_upper
 #print axioms ClippedSGD.KnownHorizonMain.known_horizon_upper
@@ -68,3 +69,23 @@ import ClippedSGD.MomentumMain
 #print axioms ClippedSGD.MixedEvents.mixed_tail
 #check ClippedSGD.ProjectionPulse.orthogonal_pulse_budget_full
 #print axioms ClippedSGD.ProjectionPulse.orthogonal_pulse_budget_full
+#check ClippedSGD.AnytimeUpperMain.anytime_upper
+#print axioms ClippedSGD.AnytimeUpperMain.anytime_upper
+#check ClippedSGD.AnytimeUpperMain.anytime_upper_centered
+#print axioms ClippedSGD.AnytimeUpperMain.anytime_upper_centered
+#check ClippedSGD.AnytimeUpperMain.anytime_upper_normalized
+#print axioms ClippedSGD.AnytimeUpperMain.anytime_upper_normalized
+#check ClippedSGD.AnytimeUpperMain.anytime_radius_event
+#print axioms ClippedSGD.AnytimeUpperMain.anytime_radius_event
+#check ClippedSGD.AnytimeUpperMain.anytime_horizon_event
+#print axioms ClippedSGD.AnytimeUpperMain.anytime_horizon_event
+#check ClippedSGD.EnergyBudget.energy_budget_finite
+#print axioms ClippedSGD.EnergyBudget.energy_budget_finite
+#check ClippedSGD.EnergyBudget.energy_budget_infinite
+#print axioms ClippedSGD.EnergyBudget.energy_budget_infinite
+#check ClippedSGD.GlobalClipping.global_clipping_estimates
+#print axioms ClippedSGD.GlobalClipping.global_clipping_estimates
+#check ClippedSGD.SuffixPotential.potential_endpoint_bound
+#print axioms ClippedSGD.SuffixPotential.potential_endpoint_bound
+#check LeanKit.Probability.Freedman.freedman_infinite
+#print axioms LeanKit.Probability.Freedman.freedman_infinite
